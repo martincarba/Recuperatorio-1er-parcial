@@ -5,7 +5,7 @@ matriz = [[0,0,0,0,0],
           [0,0,0,0,0],
           [0,0,0,0,0],
           [0,0,0,0,0]]
-
+ 
 depositos = ["Rosario", "Córdoba", "Salta", "Bahía Blanca"]
 
 insumos = ["Arduino UNO", "Sensor de temperatura", "Cable USB", "Display LCD", "Protoboard"]

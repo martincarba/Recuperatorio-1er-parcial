@@ -28,19 +28,22 @@ def estimar_stock(matriz:list,
         if totales[i] > limite:
             print(f"-{depositos_o_insumos[i]} -{totales[i]}")
 
-def stock_insumos(matriz:list,
-                  depositos:list,
-                  insumos:list) -> None:
-    
-    for i in range(len(matriz)):
-        mayor_stock = [matriz[i][0]]
-        mayor_insumos = insumos[i]
-        for j in range(len(matriz[i])):
+def stock_insumos(matriz: list,
+                  depositos: list,
+                  insumos: list) -> None:
 
+    totales_por_insumo = calcular_totales(matriz, por_fila=False)
+    
+    for j in range(len(insumos)):
+        mayor_stock = matriz[0][j]
+        deposito_mayor = depositos[0]
+        
+        for i in range(1, len(depositos)):
             if matriz[i][j] > mayor_stock:
                 mayor_stock = matriz[i][j]
-                mayor_insumos = insumos[j]
+                deposito_mayor = depositos[i]
         
-        print(f"en el deposito {depositos[i]} el insumo con mayor stock es {mayor_insumos}")
-        print(f"con {mayor_stock} unidades")
+        print(f"insumo '{insumos[j]}' tiene un total de {totales_por_insumo[j]} unidades.")
+        print(f"mayor cantidad almacenada en depósito '{deposito_mayor}': {mayor_stock} unidades.\n")
+
 
